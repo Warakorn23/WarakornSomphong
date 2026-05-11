@@ -1,360 +1,353 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Warakorn Somphong Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Poppins', sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-    body{
-        background:#f4f6fb;
-        color:#1f2937;
-    }
+body{
+    background:#f4f6fb;
+    color:#222;
+}
 
-    /* NAV */
-    nav{
-        position:fixed;
-        top:15px;
-        right:20px;
-        z-index:999;
-    }
+/* NAV */
+.nav{
+    position:fixed;
+    top:15px;
+    right:20px;
+    display:flex;
+    gap:10px;
+    z-index:1000;
+}
 
-    nav a{
-        margin-left:10px;
-        text-decoration:none;
-        background:#1e3a8a;
-        color:#fff;
-        padding:8px 12px;
-        border-radius:20px;
-        font-size:12px;
-        transition:0.3s;
-    }
+.nav a{
+    text-decoration:none;
+    background:#1e3a8a;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    font-size:12px;
+    transition:0.3s;
+}
 
-    nav a:hover{
-        background:#374151;
-    }
+.nav a:hover{
+    background:#0f255f;
+}
 
-    /* HERO */
-    .hero{
-        height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        color:white;
-        background:linear-gradient(135deg,#1e3a8a,#60a5fa);
-        position:relative;
-        overflow:hidden;
-    }
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,#1e3a8a,#64748b);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
 
-    .hero::before{
-        content:"";
-        position:absolute;
-        width:300px;
-        height:300px;
-        background:rgba(255,255,255,0.1);
-        border-radius:50%;
-        top:-50px;
-        left:-50px;
-    }
+/* background decoration */
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-80px;
+    left:-80px;
+}
 
-    .hero::after{
-        content:"";
-        position:absolute;
-        width:400px;
-        height:400px;
-        background:rgba(255,255,255,0.08);
-        border-radius:50%;
-        bottom:-100px;
-        right:-100px;
-    }
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+    bottom:-120px;
+    right:-120px;
+}
 
-    .hero-content{
-        position:relative;
-        z-index:2;
-    }
+.hero-box{
+    position:relative;
+    z-index:2;
+}
 
-    .hero img{
-        width:160px;
-        height:160px;
-        border-radius:50%;
-        object-fit:cover;
-        border:6px solid white;
-        margin-bottom:15px;
-        background:white;
-    }
+.hero img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:4px solid white;
+    object-fit:cover;
+    margin-bottom:15px;
+    background:#fff;
+}
 
-    .hero h1{
-        font-size:2.5rem;
-    }
+.hero h1{
+    font-size:2.3rem;
+}
 
-    .hero p{
-        opacity:0.9;
-    }
+.hero p{
+    opacity:0.9;
+}
 
-    /* SECTION */
-    section{
-        max-width:900px;
-        margin:auto;
-        padding:80px 20px;
-    }
+/* SECTION */
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:70px 20px;
+}
 
-    h2{
-        color:#1e3a8a;
-        margin-bottom:20px;
-    }
+h2{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
 
-    /* ABOUT */
-    .about p{
-        margin-bottom:12px;
-        color:#374151;
-    }
+/* ABOUT */
+.about p{
+    margin-bottom:12px;
+    color:#444;
+}
 
-    /* PROJECT */
-    .project{
-        background:white;
-        border-radius:12px;
-        margin-bottom:15px;
-        overflow:hidden;
-        border:1px solid #e5e7eb;
-    }
+/* PROJECT */
+.project{
+    background:#fff;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #e5e7eb;
+}
 
-    .project-header{
-        padding:12px;
-        background:#e5e7eb;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-    }
+.project-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:600;
+}
 
-    .btn{
-        cursor:pointer;
-        font-size:12px;
-        padding:6px 10px;
-        border-radius:8px;
-        border:none;
-        margin-left:5px;
-        background:#1e3a8a;
-        color:white;
-    }
+/* hidden checkboxes */
+.project input{
+    display:none;
+}
 
-    .btn.star{
-        background:#fbbf24;
-        color:#111;
-    }
+/* buttons */
+.btn{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:8px;
+    background:#e5e7eb;
+    font-size:12px;
+    cursor:pointer;
+    margin-left:5px;
+}
 
-    .project input{
-        display:none;
-    }
+.star{
+    background:#1e3a8a;
+    color:#fff;
+}
 
-    .content,
-    .imgbox{
-        max-height:0;
-        overflow:hidden;
-        transition:0.4s;
-        padding:0 12px;
-    }
+/* image + text blocks */
+.content-img,
+.content-text{
+    display:none;
+    margin-top:10px;
+}
 
-    .project input.text:checked ~ .content{
-        max-height:300px;
-        padding:12px;
-    }
+.project input#img1:checked ~ .img1,
+.project input#txt1:checked ~ .txt1,
+.project input#img2:checked ~ .img2,
+.project input#txt2:checked ~ .txt2,
+.project input#img3:checked ~ .img3,
+.project input#txt3:checked ~ .txt3{
+    display:block;
+}
 
-    .project input.img:checked ~ .imgbox{
-        max-height:300px;
-        padding:12px;
-    }
+.project img{
+    width:100%;
+    border-radius:10px;
+}
 
-    .imgbox img{
-        width:100%;
-        border-radius:10px;
-    }
+/* SKILLS */
+.skill{
+    margin-bottom:12px;
+}
 
-    /* SKILLS */
-    .skill{
-        margin-bottom:15px;
-    }
+.bar{
+    background:#e5e7eb;
+    height:10px;
+    border-radius:20px;
+    overflow:hidden;
+}
 
-    .bar{
-        height:10px;
-        background:#e5e7eb;
-        border-radius:20px;
-        overflow:hidden;
-    }
+.fill{
+    height:100%;
+    background:#1e3a8a;
+}
 
-    .fill{
-        height:100%;
-        background:#1e3a8a;
-    }
-
-    /* CONTACT */
-    .contact a{
-        display:block;
-        color:#1e3a8a;
-        text-decoration:none;
-        margin-bottom:8px;
-    }
-
+/* CONTACT */
+.contact a{
+    display:block;
+    color:#1e3a8a;
+    text-decoration:none;
+    margin-bottom:6px;
+}
 </style>
 </head>
 
 <body>
 
 <!-- NAV -->
-<nav>
-    <a href="#hero">Home</a>
+<div class="nav">
     <a href="#about">About</a>
-    <a href="#project">Project</a>
+    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-</nav>
+</div>
 
 <!-- HERO -->
-<div class="hero" id="hero">
-    <div class="hero-content">
-        <img src="1778521322518.png">
+<div class="hero">
+    <div class="hero-box">
+        <img src="1778521322518.png" alt="profile">
         <h1>Warakorn Somphong</h1>
         <p>Marketing student passionate about brand storytelling</p>
-        <p>Logistics Management Student</p>
+        <p>Logistics Management Student | ID: 6650100951</p>
     </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
-    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
+<h2>About Me</h2>
+<p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
+<p>สนใจการนำข้อมูลและ AI มาช่วยวิเคราะห์เพื่อปรับปรุงกระบวนการทำงาน และลดความซ้ำซ้อนในระบบงาน</p>
+<p>มุ่งพัฒนาทักษะด้านการจัดการและการแก้ปัญหาเฉพาะหน้าในสถานการณ์จริง</p>
 </section>
 
-<!-- PROJECT -->
-<section id="project">
-    <h2>Projects</h2>
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
 
-    <!-- PROJECT 1 -->
-    <div class="project">
-        <div class="project-header">Project 1
-            <div>
-                <label class="btn star">★</label>
-            </div>
-        </div>
+<!-- PROJECT 1 -->
+<div class="project">
+<div class="project-title">
+Project 1: Automation Planning
+<div>
+<label class="btn star" for="img1">⭐ ดูรูป</label>
+<label class="btn" for="txt1">📄 ดูข้อความ</label>
+</div>
+</div>
 
-        <input type="checkbox" class="text" id="p1t">
-        <input type="checkbox" class="img" id="p1i">
+<input type="checkbox" id="img1">
+<input type="checkbox" id="txt1">
 
-        <div class="project-header">
-            <label class="btn" for="p1t">ดูข้อความ</label>
-            <label class="btn" for="p1i">ดูรูป</label>
-        </div>
+<div class="content-img img1">
+<img src="1778522615670.png">
+</div>
 
-        <div class="content">
-            <p><b>การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</b><br>
-            ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติ ลดขั้นตอนซ้ำซ้อน เพิ่มความเร็วและความแม่นยำ</p>
-        </div>
+<div class="content-text txt1">
+ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน
+</div>
+</div>
 
-        <div class="imgbox">
-            <img src="1778522615670.png">
-        </div>
-    </div>
+<!-- PROJECT 2 -->
+<div class="project">
+<div class="project-title">
+Project 2: AI Coordination
+<div>
+<label class="btn star" for="img2">⭐ ดูรูป</label>
+<label class="btn" for="txt2">📄 ดูข้อความ</label>
+</div>
+</div>
 
-    <!-- PROJECT 2 -->
-    <div class="project">
-        <div class="project-header">Project 2
-            <label class="btn star">★</label>
-        </div>
+<input type="checkbox" id="img2">
+<input type="checkbox" id="txt2">
 
-        <input type="checkbox" class="text" id="p2t">
-        <input type="checkbox" class="img" id="p2i">
+<div class="content-img img2">
+<img src="1778522904674.png">
+</div>
 
-        <div class="project-header">
-            <label class="btn" for="p2t">ดูข้อความ</label>
-            <label class="btn" for="p2i">ดูรูป</label>
-        </div>
+<div class="content-text txt2">
+นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น
+</div>
+</div>
 
-        <div class="content">
-            <p><b>การประสานงานโดยใช้ AI</b><br>
-            ใช้ AI วิเคราะห์ข้อมูลและช่วยการประสานงานระหว่างทีม เพื่อเพิ่มประสิทธิภาพการตัดสินใจ</p>
-        </div>
+<!-- PROJECT 3 -->
+<div class="project">
+<div class="project-title">
+Project 3: Real-time Logistics Tracking
+<div>
+<label class="btn star" for="img3">⭐ ดูรูป</label>
+<label class="btn" for="txt3">📄 ดูข้อความ</label>
+</div>
+</div>
 
-        <div class="imgbox">
-            <img src="1778522904674.png">
-        </div>
-    </div>
+<input type="checkbox" id="img3">
+<input type="checkbox" id="txt3">
 
-    <!-- PROJECT 3 -->
-    <div class="project">
-        <div class="project-header">Project 3
-            <label class="btn star">★</label>
-        </div>
+<div class="content-img img3">
+<img src="1778522995240.png">
+</div>
 
-        <input type="checkbox" class="text" id="p3t">
-        <input type="checkbox" class="img" id="p3i">
+<div class="content-text txt3">
+พัฒนาแนวคิดระบบติดตามรถขนส่งที่สามารถวิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุดเพื่อลดต้นทุนและเวลา
+</div>
+</div>
 
-        <div class="project-header">
-            <label class="btn" for="p3t">ดูข้อความ</label>
-            <label class="btn" for="p3i">ดูรูป</label>
-        </div>
-
-        <div class="content">
-            <p><b>ระบบติดตามและวิเคราะห์เส้นทางการขนส่งแบบเรียลไทม์</b><br>
-            พัฒนาระบบติดตามรถ วิเคราะห์ความล่าช้า และแนะนำเส้นทางที่ดีที่สุด</p>
-        </div>
-
-        <div class="imgbox">
-            <img src="1778522995240.png">
-        </div>
-    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
+<h2>Skills</h2>
 
-    <div class="skill">
-        <p>การวางแผนโลจิสติกส์</p>
-        <div class="bar"><div class="fill" style="width:90%"></div></div>
-    </div>
+<div class="skill">
+<p>การวางแผนโลจิสติกส์ 999++ (99%)</p>
+<div class="bar"><div class="fill" style="width:99%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>การประสานงานทีม</p>
-        <div class="bar"><div class="fill" style="width:85%"></div></div>
-    </div>
+<div class="skill">
+<p>การประสานงานทีม 999++ (99%)</p>
+<div class="bar"><div class="fill" style="width:99%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>AI Data Analysis</p>
-        <div class="bar"><div class="fill" style="width:80%"></div></div>
-    </div>
+<div class="skill">
+<p>AI Data Analysis 999++ (98%)</p>
+<div class="bar"><div class="fill" style="width:98%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>Problem Solving</p>
-        <div class="bar"><div class="fill" style="width:88%"></div></div>
-    </div>
+<div class="skill">
+<p>Problem Solving 999++ (97%)</p>
+<div class="bar"><div class="fill" style="width:97%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>Supply Chain</p>
-        <div class="bar"><div class="fill" style="width:87%"></div></div>
-    </div>
+<div class="skill">
+<p>Supply Chain Understanding 999++ (96%)</p>
+<div class="bar"><div class="fill" style="width:96%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>Gaming Reflex Level 999++</p>
-        <div class="bar"><div class="fill" style="width:99%"></div></div>
-    </div>
+<div class="skill">
+<p>Gaming Reflex Level 99999++ (100%)</p>
+<div class="bar"><div class="fill" style="width:100%"></div></div>
+</div>
+
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
-    <a href="#">LinkedIn: Warakorn Somphong</a>
-    <a href="#">Instagram: @warakorn</a>
+<h2>Contact</h2>
+<a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
+<a href="#">LinkedIn: Warakorn Somphong</a>
+<a href="#">Instagram: @warakorn</a>
 </section>
 
 </body>
