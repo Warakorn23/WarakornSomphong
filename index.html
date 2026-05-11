@@ -20,13 +20,39 @@
         color:#1f2937;
     }
 
+    /* NAV */
+    nav{
+        position:fixed;
+        top:15px;
+        right:20px;
+        z-index:999;
+    }
+
+    nav a{
+        margin-left:10px;
+        text-decoration:none;
+        background:#1e3a8a;
+        color:#fff;
+        padding:8px 12px;
+        border-radius:20px;
+        font-size:12px;
+        transition:0.3s;
+    }
+
+    nav a:hover{
+        background:#374151;
+    }
+
     /* HERO */
     .hero{
-        position:relative;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
         text-align:center;
-        padding:90px 20px;
-        background:linear-gradient(135deg,#1e3a8a,#3b82f6);
         color:white;
+        background:linear-gradient(135deg,#1e3a8a,#60a5fa);
+        position:relative;
         overflow:hidden;
     }
 
@@ -35,47 +61,51 @@
         position:absolute;
         width:300px;
         height:300px;
-        background:rgba(255,255,255,0.08);
+        background:rgba(255,255,255,0.1);
         border-radius:50%;
-        top:-80px;
-        left:-80px;
+        top:-50px;
+        left:-50px;
     }
 
     .hero::after{
         content:"";
         position:absolute;
-        width:250px;
-        height:250px;
-        background:rgba(255,255,255,0.06);
+        width:400px;
+        height:400px;
+        background:rgba(255,255,255,0.08);
         border-radius:50%;
-        bottom:-80px;
-        right:-80px;
+        bottom:-100px;
+        right:-100px;
+    }
+
+    .hero-content{
+        position:relative;
+        z-index:2;
     }
 
     .hero img{
-        width:140px;
-        height:140px;
+        width:160px;
+        height:160px;
         border-radius:50%;
         object-fit:cover;
-        border:4px solid white;
+        border:6px solid white;
         margin-bottom:15px;
         background:white;
     }
 
     .hero h1{
-        font-size:2.2rem;
+        font-size:2.5rem;
     }
 
     .hero p{
         opacity:0.9;
-        margin-top:5px;
     }
 
     /* SECTION */
     section{
-        max-width:950px;
+        max-width:900px;
         margin:auto;
-        padding:60px 20px;
+        padding:80px 20px;
     }
 
     h2{
@@ -87,91 +117,76 @@
     .about p{
         margin-bottom:12px;
         color:#374151;
-        line-height:1.7;
     }
 
     /* PROJECT */
     .project{
         background:white;
         border-radius:12px;
-        padding:15px;
         margin-bottom:15px;
+        overflow:hidden;
         border:1px solid #e5e7eb;
     }
 
-    .project-title{
+    .project-header{
+        padding:12px;
+        background:#e5e7eb;
         display:flex;
         justify-content:space-between;
         align-items:center;
-        font-weight:600;
-        margin-bottom:10px;
-    }
-
-    .toggle{
-        display:flex;
-        gap:8px;
     }
 
     .btn{
-        background:#e5e7eb;
-        border:none;
-        padding:6px 10px;
-        border-radius:6px;
         cursor:pointer;
         font-size:12px;
+        padding:6px 10px;
+        border-radius:8px;
+        border:none;
+        margin-left:5px;
+        background:#1e3a8a;
+        color:white;
     }
 
-    .btn:hover{
-        background:#d1d5db;
+    .btn.star{
+        background:#fbbf24;
+        color:#111;
     }
 
-    input{
+    .project input{
         display:none;
     }
 
-    /* IMAGE */
-    .img-box{
-        display:none;
-        text-align:center;
-        margin-top:10px;
+    .content,
+    .imgbox{
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s;
+        padding:0 12px;
     }
 
-    .img-box img{
-        width:180px;
-        height:120px;
-        object-fit:cover;
+    .project input.text:checked ~ .content{
+        max-height:300px;
+        padding:12px;
+    }
+
+    .project input.img:checked ~ .imgbox{
+        max-height:300px;
+        padding:12px;
+    }
+
+    .imgbox img{
+        width:100%;
         border-radius:10px;
-    }
-
-    /* TEXT */
-    .text-box{
-        display:none;
-        margin-top:10px;
-        color:#4b5563;
-        line-height:1.6;
-    }
-
-    /* toggles */
-    #p1-img:checked ~ .img-box,
-    #p2-img:checked ~ .img-box,
-    #p3-img:checked ~ .img-box{
-        display:block;
-    }
-
-    #p1-text:checked ~ .text-box,
-    #p2-text:checked ~ .text-box,
-    #p3-text:checked ~ .text-box{
-        display:block;
     }
 
     /* SKILLS */
     .skill{
-        margin-bottom:14px;
+        margin-bottom:15px;
     }
 
     .bar{
-        background:#e5e7eb;
         height:10px;
+        background:#e5e7eb;
         border-radius:20px;
         overflow:hidden;
     }
@@ -194,135 +209,152 @@
 
 <body>
 
+<!-- NAV -->
+<nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#project">Project</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <!-- HERO -->
-<div class="hero">
-    <img src="1778521322518.png">
-    <h1>Warakorn Somphong</h1>
-    <p>Marketing student passionate about brand storytelling</p>
-    <p>Logistics Management Student | ID: 6650100951</p>
+<div class="hero" id="hero">
+    <div class="hero-content">
+        <img src="1778521322518.png">
+        <h1>Warakorn Somphong</h1>
+        <p>Marketing student passionate about brand storytelling</p>
+        <p>Logistics Management Student</p>
+    </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about">
+<section id="about" class="about">
     <h2>About Me</h2>
     <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
-    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น พร้อมพัฒนาทักษะด้านการวิเคราะห์และการจัดการข้อมูล</p>
+    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
 </section>
 
-<!-- PROJECTS -->
-<section>
-<h2>Projects</h2>
+<!-- PROJECT -->
+<section id="project">
+    <h2>Projects</h2>
 
-<!-- PROJECT 1 -->
-<div class="project">
-    <div class="project-title">
-        Project 1: การวางแผนงานควบคู่ระบบอัตโนมัติ
-        <div class="toggle">
-            <label class="btn" for="p1-img">ดูรูป</label>
-            <label class="btn" for="p1-text">★ ข้อความ</label>
+    <!-- PROJECT 1 -->
+    <div class="project">
+        <div class="project-header">Project 1
+            <div>
+                <label class="btn star">★</label>
+            </div>
+        </div>
+
+        <input type="checkbox" class="text" id="p1t">
+        <input type="checkbox" class="img" id="p1i">
+
+        <div class="project-header">
+            <label class="btn" for="p1t">ดูข้อความ</label>
+            <label class="btn" for="p1i">ดูรูป</label>
+        </div>
+
+        <div class="content">
+            <p><b>การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</b><br>
+            ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติ ลดขั้นตอนซ้ำซ้อน เพิ่มความเร็วและความแม่นยำ</p>
+        </div>
+
+        <div class="imgbox">
+            <img src="1778522615670.png">
         </div>
     </div>
 
-    <input type="checkbox" id="p1-img">
-    <input type="checkbox" id="p1-text">
+    <!-- PROJECT 2 -->
+    <div class="project">
+        <div class="project-header">Project 2
+            <label class="btn star">★</label>
+        </div>
 
-    <div class="img-box">
-        <img src="1778522615670.png">
-    </div>
+        <input type="checkbox" class="text" id="p2t">
+        <input type="checkbox" class="img" id="p2i">
 
-    <div class="text-box">
-        ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน
-    </div>
-</div>
+        <div class="project-header">
+            <label class="btn" for="p2t">ดูข้อความ</label>
+            <label class="btn" for="p2i">ดูรูป</label>
+        </div>
 
-<!-- PROJECT 2 -->
-<div class="project">
-    <div class="project-title">
-        Project 2: การประสานงานโดยใช้ AI
-        <div class="toggle">
-            <label class="btn" for="p2-img">ดูรูป</label>
-            <label class="btn" for="p2-text">★ ข้อความ</label>
+        <div class="content">
+            <p><b>การประสานงานโดยใช้ AI</b><br>
+            ใช้ AI วิเคราะห์ข้อมูลและช่วยการประสานงานระหว่างทีม เพื่อเพิ่มประสิทธิภาพการตัดสินใจ</p>
+        </div>
+
+        <div class="imgbox">
+            <img src="1778522904674.png">
         </div>
     </div>
 
-    <input type="checkbox" id="p2-img">
-    <input type="checkbox" id="p2-text">
+    <!-- PROJECT 3 -->
+    <div class="project">
+        <div class="project-header">Project 3
+            <label class="btn star">★</label>
+        </div>
 
-    <div class="img-box">
-        <img src="1778522904674.png">
-    </div>
+        <input type="checkbox" class="text" id="p3t">
+        <input type="checkbox" class="img" id="p3i">
 
-    <div class="text-box">
-        นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น
-    </div>
-</div>
+        <div class="project-header">
+            <label class="btn" for="p3t">ดูข้อความ</label>
+            <label class="btn" for="p3i">ดูรูป</label>
+        </div>
 
-<!-- PROJECT 3 -->
-<div class="project">
-    <div class="project-title">
-        Project 3: ระบบติดตามเส้นทางขนส่งเรียลไทม์
-        <div class="toggle">
-            <label class="btn" for="p3-img">ดูรูป</label>
-            <label class="btn" for="p3-text">★ ข้อความ</label>
+        <div class="content">
+            <p><b>ระบบติดตามและวิเคราะห์เส้นทางการขนส่งแบบเรียลไทม์</b><br>
+            พัฒนาระบบติดตามรถ วิเคราะห์ความล่าช้า และแนะนำเส้นทางที่ดีที่สุด</p>
+        </div>
+
+        <div class="imgbox">
+            <img src="1778522995240.png">
         </div>
     </div>
-
-    <input type="checkbox" id="p3-img">
-    <input type="checkbox" id="p3-text">
-
-    <div class="img-box">
-        <img src="1778522995240.png">
-    </div>
-
-    <div class="text-box">
-        พัฒนาแนวคิดระบบติดตามรถขนส่ง วิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมเพื่อลดต้นทุนและเวลา
-    </div>
-</div>
-
 </section>
 
 <!-- SKILLS -->
-<section>
-<h2>Skills</h2>
+<section id="skills">
+    <h2>Skills</h2>
 
-<div class="skill">
-    <p>การวางแผนโลจิสติกส์</p>
-    <div class="bar"><div class="fill" style="width:90%"></div></div>
-</div>
+    <div class="skill">
+        <p>การวางแผนโลจิสติกส์</p>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+    </div>
 
-<div class="skill">
-    <p>การทำงานเป็นทีม</p>
-    <div class="bar"><div class="fill" style="width:88%"></div></div>
-</div>
+    <div class="skill">
+        <p>การประสานงานทีม</p>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+    </div>
 
-<div class="skill">
-    <p>การใช้ AI วิเคราะห์ข้อมูล</p>
-    <div class="bar"><div class="fill" style="width:85%"></div></div>
-</div>
+    <div class="skill">
+        <p>AI Data Analysis</p>
+        <div class="bar"><div class="fill" style="width:80%"></div></div>
+    </div>
 
-<div class="skill">
-    <p>การแก้ปัญหาเฉพาะหน้า</p>
-    <div class="bar"><div class="fill" style="width:87%"></div></div>
-</div>
+    <div class="skill">
+        <p>Problem Solving</p>
+        <div class="bar"><div class="fill" style="width:88%"></div></div>
+    </div>
 
-<div class="skill">
-    <p>ระบบขนส่ง & ซัพพลายเชน</p>
-    <div class="bar"><div class="fill" style="width:86%"></div></div>
-</div>
+    <div class="skill">
+        <p>Supply Chain</p>
+        <div class="bar"><div class="fill" style="width:87%"></div></div>
+    </div>
 
-<div class="skill">
-    <p>เกมเมอร์ Level 999++ (คิดเร็ว 99%)</p>
-    <div class="bar"><div class="fill" style="width:99%"></div></div>
-</div>
-
+    <div class="skill">
+        <p>Gaming Reflex Level 999++</p>
+        <div class="bar"><div class="fill" style="width:99%"></div></div>
+    </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
-<h2>Contact</h2>
-<a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
-<a href="#">LinkedIn: Warakorn Somphong</a>
-<a href="#">Instagram: @warakorn</a>
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
+    <a href="#">LinkedIn: Warakorn Somphong</a>
+    <a href="#">Instagram: @warakorn</a>
 </section>
 
 </body>
