@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Warakorn Somphong Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===== BASE ===== */
 *{
     margin:0;
     padding:0;
@@ -16,109 +17,100 @@
 }
 
 body{
-    background:#f5f7fb;
+    background:#f4f6fb;
     color:#1f2937;
     scroll-behavior:smooth;
 }
 
-/* NAV */
-.nav{
+/* ===== BACKGROUND DECOR ===== */
+body::before{
+    content:"";
     position:fixed;
-    top:15px;
-    right:15px;
-    display:flex;
-    gap:10px;
+    width:400px;
+    height:400px;
+    background:#1e3a8a;
+    top:-100px;
+    left:-100px;
+    border-radius:50%;
+    opacity:0.08;
+}
+body::after{
+    content:"";
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:#6b7280;
+    bottom:-80px;
+    right:-80px;
+    border-radius:50%;
+    opacity:0.08;
+}
+
+/* ===== NAV ===== */
+nav{
+    position:fixed;
+    top:20px;
+    right:20px;
     background:#ffffffcc;
     backdrop-filter:blur(10px);
     padding:10px;
     border-radius:12px;
-    border:1px solid #ddd;
-    z-index:999;
+    display:flex;
+    gap:10px;
+    z-index:1000;
+    border:1px solid #e5e7eb;
 }
 
-.nav a{
+nav a{
     text-decoration:none;
     color:#1e3a8a;
-    font-weight:500;
     font-size:14px;
     padding:6px 10px;
     border-radius:8px;
 }
 
-.nav a:hover{
+nav a:hover{
     background:#1e3a8a;
     color:white;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
     text-align:center;
-    background:linear-gradient(135deg,#e0e7ff,#f8fafc);
-    position:relative;
-    overflow:hidden;
+    padding:90px 20px 60px;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:#1e3a8a;
-    opacity:0.1;
-    border-radius:50%;
-    top:-100px;
-    left:-100px;
+.hero-box{
+    background:white;
+    display:inline-block;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:#64748b;
-    opacity:0.1;
-    border-radius:50%;
-    bottom:-80px;
-    right:-80px;
-}
-
-.profile{
+.hero img{
     width:180px;
     height:180px;
     border-radius:50%;
-    padding:6px;
-    background:white;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    margin-bottom:20px;
-}
-
-.profile img{
-    width:100%;
-    height:100%;
-    border-radius:50%;
     object-fit:cover;
+    border:4px solid #1e3a8a;
+    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:2.5rem;
+    font-size:2rem;
     color:#1e3a8a;
 }
 
 .hero p{
-    margin-top:10px;
-    color:#4b5563;
+    color:#6b7280;
 }
 
-/* SECTION */
+/* ===== SECTION ===== */
 section{
-    max-width:1000px;
+    max-width:950px;
     margin:auto;
-    padding:80px 20px;
+    padding:60px 20px;
 }
 
 h2{
@@ -126,76 +118,96 @@ h2{
     margin-bottom:20px;
 }
 
-/* ABOUT */
+/* ===== ABOUT ===== */
 .about p{
-    margin-bottom:15px;
-    line-height:1.7;
+    margin-bottom:12px;
     color:#4b5563;
 }
 
-/* PROJECT */
+/* ===== PROJECT TOGGLE SYSTEM ===== */
 .project{
     background:white;
+    margin-bottom:15px;
+    border-radius:12px;
     border:1px solid #e5e7eb;
-    border-radius:14px;
-    padding:15px;
-    margin-bottom:20px;
+    overflow:hidden;
 }
 
 .project-title{
+    padding:15px;
+    background:#f3f4f6;
     font-weight:600;
-    margin-bottom:10px;
-    color:#111827;
 }
 
-.toggle-group{
-    display:flex;
-    gap:10px;
-    margin-bottom:10px;
-}
-
-.toggle-group input{
+/* checkboxes */
+.project input{
     display:none;
 }
 
-.btn{
-    padding:6px 10px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:13px;
-    border:1px solid #cbd5e1;
-    background:#f8fafc;
+/* buttons */
+.toggle-buttons{
+    display:flex;
+    gap:10px;
+    padding:10px 15px;
 }
 
-.btn:hover{
+.toggle-buttons label{
+    cursor:pointer;
+    font-size:13px;
+    padding:5px 10px;
+    border-radius:8px;
+    border:1px solid #1e3a8a;
+    color:#1e3a8a;
+}
+
+.toggle-buttons label:hover{
     background:#1e3a8a;
     color:white;
 }
 
+/* content */
 .content{
+    padding:0 15px 15px;
+}
+
+/* image + text hidden default */
+.img-box,
+.text-box{
     display:none;
     margin-top:10px;
 }
 
-input:checked + label + .content{
+/* show image */
+.img-toggle:checked ~ .content .img-box{
     display:block;
 }
 
-.project img{
-    width:100%;
-    border-radius:12px;
-    object-fit:contain;
-    background:#fff;
+/* show text */
+.text-toggle:checked ~ .content .text-box{
+    display:block;
 }
 
-/* SKILLS */
+/* image style */
+.content img{
+    width:100%;
+    object-fit:contain;
+    border-radius:12px;
+    border:2px solid #e5e7eb;
+}
+
+/* ===== SKILLS ===== */
 .skill{
     margin-bottom:15px;
 }
 
+.skill-name{
+    margin-bottom:5px;
+    font-weight:500;
+}
+
 .bar{
-    height:10px;
     background:#e5e7eb;
+    height:10px;
     border-radius:20px;
     overflow:hidden;
 }
@@ -205,7 +217,7 @@ input:checked + label + .content{
     background:#1e3a8a;
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact a{
     display:block;
     color:#1e3a8a;
@@ -223,141 +235,146 @@ input:checked + label + .content{
 <body>
 
 <!-- NAV -->
-<div class="nav">
+<nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Project</a>
     <a href="#skills">Skill</a>
     <a href="#contact">Contact</a>
-</div>
+</nav>
 
 <!-- HERO -->
-<div class="hero" id="home">
-    <div class="profile">
+<section id="home" class="hero">
+    <div class="hero-box">
         <img src="1778521322518.png" alt="profile">
+        <h1>Warakorn Somphong</h1>
+        <p>Marketing student passionate about brand storytelling</p>
+        <p>Logistics Management | ID: 6650100951</p>
     </div>
-    <h1>Warakorn Somphong</h1>
-    <p>Marketing student passionate about brand storytelling</p>
-    <p>Logistics Management Student | ID: 6650100951</p>
-</div>
+</section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
-    <p>มีความสนใจในการวิเคราะห์ระบบการทำงานและการนำ AI มาใช้ช่วยลดความซับซ้อนของงานด้านโลจิสติกส์</p>
-    <p>ตั้งใจพัฒนาทักษะเพื่อทำงานในระบบซัพพลายเชนระดับมืออาชีพในอนาคต</p>
+<h2>About Me</h2>
+<p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง</p>
+<p>มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
+<p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น พร้อมพัฒนาทักษะด้าน AI และระบบอัจฉริยะ</p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
+<h2>Projects</h2>
 
-    <!-- Project 1 -->
-    <div class="project">
-        <div class="project-title">Project 1: การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</div>
+<!-- PROJECT 1 -->
+<div class="project">
+<div class="project-title">Project 1: การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</div>
 
-        <div class="toggle-group">
-            <input type="checkbox" id="p1t">
-            <label class="btn" for="p1t">★ Text</label>
+<input type="checkbox" class="img-toggle" id="p1-img">
+<input type="checkbox" class="text-toggle" id="p1-text">
 
-            <input type="checkbox" id="p1i">
-            <label class="btn" for="p1i">🖼 Image</label>
-        </div>
+<div class="toggle-buttons">
+<label for="p1-img">รูปภาพ</label>
+<label for="p1-text">ข้อความ</label>
+</div>
 
-        <div class="content">
-            <p>ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน</p>
-        </div>
+<div class="content">
+<div class="img-box">
+<img src="1778522615670.png">
+</div>
+<div class="text-box">
+ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน
+</div>
+</div>
+</div>
 
-        <div class="content">
-            <img src="1778522615670.png">
-        </div>
-    </div>
+<!-- PROJECT 2 -->
+<div class="project">
+<div class="project-title">Project 2: การประสานงานโดยใช้ AI</div>
 
-    <!-- Project 2 -->
-    <div class="project">
-        <div class="project-title">Project 2: การประสานงานโดยใช้ AI</div>
+<input type="checkbox" class="img-toggle" id="p2-img">
+<input type="checkbox" class="text-toggle" id="p2-text">
 
-        <div class="toggle-group">
-            <input type="checkbox" id="p2t">
-            <label class="btn" for="p2t">★ Text</label>
+<div class="toggle-buttons">
+<label for="p2-img">รูปภาพ</label>
+<label for="p2-text">ข้อความ</label>
+</div>
 
-            <input type="checkbox" id="p2i">
-            <label class="btn" for="p2i">🖼 Image</label>
-        </div>
+<div class="content">
+<div class="img-box">
+<img src="1778522904674.png">
+</div>
+<div class="text-box">
+นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น
+</div>
+</div>
+</div>
 
-        <div class="content">
-            <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น</p>
-        </div>
+<!-- PROJECT 3 -->
+<div class="project">
+<div class="project-title">Project 3: ระบบติดตามการขนส่งแบบเรียลไทม์</div>
 
-        <div class="content">
-            <img src="1778522904674.png">
-        </div>
-    </div>
+<input type="checkbox" class="img-toggle" id="p3-img">
+<input type="checkbox" class="text-toggle" id="p3-text">
 
-    <!-- Project 3 -->
-    <div class="project">
-        <div class="project-title">Project 3: ระบบติดตามและวิเคราะห์เส้นทาง</div>
+<div class="toggle-buttons">
+<label for="p3-img">รูปภาพ</label>
+<label for="p3-text">ข้อความ</label>
+</div>
 
-        <div class="toggle-group">
-            <input type="checkbox" id="p3t">
-            <label class="btn" for="p3t">★ Text</label>
+<div class="content">
+<div class="img-box">
+<img src="1778522995240.png">
+</div>
+<div class="text-box">
+พัฒนาแนวคิดระบบติดตามรถขนส่งที่สามารถวิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุดเพื่อลดต้นทุนและเวลา
+</div>
+</div>
+</div>
 
-            <input type="checkbox" id="p3i">
-            <label class="btn" for="p3i">🖼 Image</label>
-        </div>
-
-        <div class="content">
-            <p>พัฒนาแนวคิดระบบติดตามรถขนส่งที่สามารถวิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุดเพื่อลดต้นทุนและเวลา</p>
-        </div>
-
-        <div class="content">
-            <img src="1778522995240.png">
-        </div>
-    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
+<h2>Skills</h2>
 
-    <div class="skill">
-        <p>การวางแผนและจัดการงานโลจิสติกส์ 999++ (95%)</p>
-        <div class="bar"><div class="fill" style="width:95%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">การวางแผนและจัดการโลจิสติกส์ 999++ (95%)</div>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>การประสานงานและการทำงานเป็นทีม 999++ (98%)</p>
-        <div class="bar"><div class="fill" style="width:98%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">การทำงานเป็นทีม 999++ (97%)</div>
+<div class="bar"><div class="fill" style="width:97%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>การใช้ AI วิเคราะห์ข้อมูล 999++ (92%)</p>
-        <div class="bar"><div class="fill" style="width:92%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">AI & Data Analysis 999++ (94%)</div>
+<div class="bar"><div class="fill" style="width:94%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>การแก้ปัญหาเฉพาะหน้า 999++ (94%)</p>
-        <div class="bar"><div class="fill" style="width:94%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">การแก้ปัญหาเฉพาะหน้า 999++ (96%)</div>
+<div class="bar"><div class="fill" style="width:96%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>ความเข้าใจซัพพลายเชน 999++ (90%)</p>
-        <div class="bar"><div class="fill" style="width:90%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">Supply Chain Knowledge 999++ (93%)</div>
+<div class="bar"><div class="fill" style="width:93%"></div></div>
+</div>
 
-    <div class="skill">
-        <p>เล่นเกม Level 99999++ (99%)</p>
-        <div class="bar"><div class="fill" style="width:99%"></div></div>
-    </div>
+<div class="skill">
+<div class="skill-name">Gaming & Decision Speed Level 99999++ (99%)</div>
+<div class="bar"><div class="fill" style="width:99%"></div></div>
+</div>
+
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
-    <a href="#">LinkedIn: Warakorn Somphong</a>
-    <a href="#">Instagram: @warakorn</a>
+<h2>Contact</h2>
+<a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
+<a href="#">LinkedIn: Warakorn Somphong</a>
+<a href="#">Instagram: @warakorn</a>
 </section>
 
 </body>
