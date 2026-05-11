@@ -23,7 +23,7 @@
     /* HERO */
     .hero{
         background:#1e3a8a;
-        color:#fff;
+        color:white;
         text-align:center;
         padding:80px 20px;
     }
@@ -33,22 +33,22 @@
         height:150px;
         border-radius:50%;
         object-fit:cover;
-        border:5px solid #fff;
+        border:4px solid white;
         margin-bottom:15px;
-        background:#fff;
     }
 
     .hero h1{
         font-size:2.4rem;
-        margin-bottom:8px;
     }
 
     .hero p{
         opacity:0.9;
+        margin-top:5px;
     }
 
+    /* SECTION */
     section{
-        max-width:950px;
+        max-width:900px;
         margin:auto;
         padding:60px 20px;
     }
@@ -65,13 +65,13 @@
         line-height:1.7;
     }
 
-    /* PROJECT TOGGLE */
+    /* PROJECTS STAR TOGGLE */
     .project{
-        margin-bottom:12px;
+        margin-bottom:15px;
         border:1px solid #ddd;
         border-radius:10px;
         overflow:hidden;
-        background:#fff;
+        background:white;
     }
 
     .project input{
@@ -79,16 +79,23 @@
     }
 
     .project label{
-        display:block;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
         padding:15px;
-        background:#e5e7eb;
         cursor:pointer;
+        background:#e5e7eb;
         font-weight:500;
-        transition:0.2s;
     }
 
-    .project label:hover{
-        background:#dbe2ea;
+    .star{
+        font-size:18px;
+        color:#1e3a8a;
+        transition:0.3s;
+    }
+
+    .project input:checked + label .star{
+        transform:rotate(180deg);
     }
 
     .content{
@@ -99,7 +106,7 @@
     }
 
     .project input:checked ~ .content{
-        max-height:600px;
+        max-height:500px;
         padding:15px;
     }
 
@@ -107,10 +114,6 @@
         width:100%;
         border-radius:10px;
         margin-bottom:10px;
-    }
-
-    .content p{
-        color:#555;
     }
 
     /* SKILLS */
@@ -128,6 +131,12 @@
     .fill{
         height:100%;
         background:#1e3a8a;
+    }
+
+    .skill span{
+        float:right;
+        font-size:12px;
+        color:#666;
     }
 
     /* CONTACT */
@@ -152,15 +161,18 @@
     <img src="1778521322518.png" alt="Profile">
     <h1>Warakorn Somphong</h1>
     <p>Marketing student passionate about brand storytelling</p>
-    <p>Logistics Management Student | ID: 6650100951</p>
+    <p>Student ID: 6650100951 | Logistics Management</p>
 </div>
 
 <!-- ABOUT -->
 <section class="about">
     <h2>About Me</h2>
+
     <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง</p>
+
     <p>มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
-    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็ว แม่นยำ และสามารถปรับตัวเข้ากับเทคโนโลยีสมัยใหม่ได้</p>
+
+    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น และสามารถพัฒนาไปสู่ระบบอัจฉริยะในอนาคต</p>
 </section>
 
 <!-- PROJECTS -->
@@ -169,31 +181,39 @@
 
     <div class="project">
         <input type="checkbox" id="p1">
-        <label for="p1">Project 1: การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</label>
+        <label for="p1">
+            Project 1: Automation Planning
+            <div class="star">★</div>
+        </label>
         <div class="content">
-            <img src="1778520401648.png">
+            <img src="1778522615670.png">
             <p>ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน</p>
         </div>
     </div>
 
     <div class="project">
         <input type="checkbox" id="p2">
-        <label for="p2">Project 2: การประสานงานโดยใช้ AI</label>
+        <label for="p2">
+            Project 2: AI Coordination
+            <div class="star">★</div>
+        </label>
         <div class="content">
-            <img src="1778520729005.png">
-            <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น</p>
+            <img src="1778522904674.png">
+            <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อเพิ่มประสิทธิภาพการสื่อสารและการตัดสินใจ</p>
         </div>
     </div>
 
     <div class="project">
         <input type="checkbox" id="p3">
-        <label for="p3">Project 3: ระบบติดตามเส้นทางขนส่งแบบเรียลไทม์</label>
+        <label for="p3">
+            Project 3: Real-time Tracking System
+            <div class="star">★</div>
+        </label>
         <div class="content">
-            <img src="1778521020624.png">
-            <p>พัฒนาแนวคิดระบบติดตามรถขนส่ง วิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมเพื่อลดต้นทุนและเวลา</p>
+            <img src="1778522995240.png">
+            <p>พัฒนาแนวคิดระบบติดตามรถขนส่งแบบเรียลไทม์ วิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุด</p>
         </div>
     </div>
-
 </section>
 
 <!-- SKILLS -->
@@ -201,33 +221,33 @@
     <h2>Skills</h2>
 
     <div class="skill">
-        <p>การวางแผนโลจิสติกส์</p>
+        <p>Logistics Planning <span>90%</span></p>
         <div class="bar"><div class="fill" style="width:90%"></div></div>
     </div>
 
     <div class="skill">
-        <p>การทำงานเป็นทีม</p>
+        <p>Team Coordination <span>88%</span></p>
         <div class="bar"><div class="fill" style="width:88%"></div></div>
     </div>
 
     <div class="skill">
-        <p>AI & Data Analysis</p>
-        <div class="bar"><div class="fill" style="width:82%"></div></div>
-    </div>
-
-    <div class="skill">
-        <p>การแก้ปัญหา</p>
-        <div class="bar"><div class="fill" style="width:92%"></div></div>
-    </div>
-
-    <div class="skill">
-        <p>Supply Chain</p>
+        <p>AI Data Analysis <span>85%</span></p>
         <div class="bar"><div class="fill" style="width:85%"></div></div>
     </div>
 
     <div class="skill">
-        <p>Game Strategy & Decision Making</p>
-        <div class="bar"><div class="fill" style="width:999%"></div></div>
+        <p>Problem Solving <span>92%</span></p>
+        <div class="bar"><div class="fill" style="width:92%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Supply Chain Understanding <span>87%</span></p>
+        <div class="bar"><div class="fill" style="width:87%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Game-Level Decision Making (Level 999++) <span>99%</span></p>
+        <div class="bar"><div class="fill" style="width:99%"></div></div>
     </div>
 
 </section>
