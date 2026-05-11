@@ -5,57 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Warakorn Somphong Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:'Inter', sans-serif;
 }
 
 body{
     background:#f5f7fb;
-    color:#333;
+    color:#1f2937;
+    scroll-behavior:smooth;
 }
 
 /* NAV */
-nav{
+.nav{
     position:fixed;
-    top:0;
-    right:0;
-    width:100%;
+    top:15px;
+    right:15px;
     display:flex;
-    justify-content:flex-end;
-    padding:15px 30px;
-    background:rgba(255,255,255,0.8);
+    gap:10px;
+    background:#ffffffcc;
     backdrop-filter:blur(10px);
+    padding:10px;
+    border-radius:12px;
+    border:1px solid #ddd;
     z-index:999;
-    border-bottom:1px solid #e5e7eb;
 }
 
-nav a{
-    margin-left:20px;
+.nav a{
     text-decoration:none;
     color:#1e3a8a;
     font-weight:500;
+    font-size:14px;
+    padding:6px 10px;
+    border-radius:8px;
+}
+
+.nav a:hover{
+    background:#1e3a8a;
+    color:white;
 }
 
 /* HERO */
 .hero{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:linear-gradient(135deg,#1e3a8a,#64748b);
-    color:#fff;
+    background:linear-gradient(135deg,#e0e7ff,#f8fafc);
     position:relative;
     overflow:hidden;
 }
@@ -63,40 +66,52 @@ nav a{
 .hero::before{
     content:"";
     position:absolute;
-    width:300px;
-    height:300px;
-    background:rgba(255,255,255,0.1);
+    width:400px;
+    height:400px;
+    background:#1e3a8a;
+    opacity:0.1;
     border-radius:50%;
-    top:-80px;
-    left:-80px;
+    top:-100px;
+    left:-100px;
 }
 
 .hero::after{
     content:"";
     position:absolute;
-    width:250px;
-    height:250px;
-    background:rgba(255,255,255,0.08);
+    width:300px;
+    height:300px;
+    background:#64748b;
+    opacity:0.1;
     border-radius:50%;
     bottom:-80px;
     right:-80px;
 }
 
-.hero img{
-    width:160px;
-    height:160px;
+.profile{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    padding:6px;
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
     border-radius:50%;
     object-fit:cover;
-    border:5px solid #fff;
-    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:2.4rem;
+    font-size:2.5rem;
+    color:#1e3a8a;
 }
 
 .hero p{
-    opacity:0.9;
+    margin-top:10px;
+    color:#4b5563;
 }
 
 /* SECTION */
@@ -113,72 +128,67 @@ h2{
 
 /* ABOUT */
 .about p{
-    margin-bottom:12px;
-    color:#555;
+    margin-bottom:15px;
+    line-height:1.7;
+    color:#4b5563;
 }
 
 /* PROJECT */
 .project{
-    background:#fff;
+    background:white;
     border:1px solid #e5e7eb;
-    border-radius:12px;
-    margin-bottom:15px;
-    overflow:hidden;
+    border-radius:14px;
+    padding:15px;
+    margin-bottom:20px;
 }
 
-.project input{
-    display:none;
+.project-title{
+    font-weight:600;
+    margin-bottom:10px;
+    color:#111827;
 }
 
-/* buttons */
-.btn-row{
+.toggle-group{
     display:flex;
     gap:10px;
-    padding:15px;
-    flex-wrap:wrap;
-}
-
-label{
-    cursor:pointer;
-}
-
-.btn{
-    padding:8px 12px;
-    background:#1e3a8a;
-    color:#fff;
-    border-radius:8px;
-    font-size:13px;
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-}
-
-/* star icon */
-.star::before{
-    content:"★";
-}
-
-/* content toggle */
-.content{
-    max-height:0;
-    overflow:hidden;
-    transition:0.4s;
-    padding:0 15px;
-}
-
-.project input:checked ~ .content{
-    max-height:600px;
-    padding:15px;
-}
-
-/* image full */
-.content img{
-    width:100%;
-    border-radius:10px;
     margin-bottom:10px;
 }
 
-/* SKILL */
+.toggle-group input{
+    display:none;
+}
+
+.btn{
+    padding:6px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    border:1px solid #cbd5e1;
+    background:#f8fafc;
+}
+
+.btn:hover{
+    background:#1e3a8a;
+    color:white;
+}
+
+.content{
+    display:none;
+    margin-top:10px;
+}
+
+input:checked + label + .content{
+    display:block;
+}
+
+.project img{
+    width:100%;
+    border-radius:12px;
+    object-fit:contain;
+    background:#fff;
+}
+
+/* SKILLS */
 .skill{
     margin-bottom:15px;
 }
@@ -199,8 +209,8 @@ label{
 .contact a{
     display:block;
     color:#1e3a8a;
-    text-decoration:none;
     margin-bottom:8px;
+    text-decoration:none;
 }
 
 .contact a:hover{
@@ -213,125 +223,141 @@ label{
 <body>
 
 <!-- NAV -->
-<nav>
+<div class="nav">
     <a href="#home">Home</a>
-    <a href="#about">About Me</a>
+    <a href="#about">About</a>
     <a href="#projects">Project</a>
     <a href="#skills">Skill</a>
     <a href="#contact">Contact</a>
-</nav>
+</div>
 
 <!-- HERO -->
-<section id="home" class="hero">
-    <img src="1778521322518.png" alt="Profile">
+<div class="hero" id="home">
+    <div class="profile">
+        <img src="1778521322518.png" alt="profile">
+    </div>
     <h1>Warakorn Somphong</h1>
     <p>Marketing student passionate about brand storytelling</p>
-</section>
+    <p>Logistics Management Student | ID: 6650100951</p>
+</div>
 
 <!-- ABOUT -->
 <section id="about" class="about">
     <h2>About Me</h2>
-    <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง</p>
-    <p>มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
-    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
+    <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น</p>
+    <p>มีความสนใจในการวิเคราะห์ระบบการทำงานและการนำ AI มาใช้ช่วยลดความซับซ้อนของงานด้านโลจิสติกส์</p>
+    <p>ตั้งใจพัฒนาทักษะเพื่อทำงานในระบบซัพพลายเชนระดับมืออาชีพในอนาคต</p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Projects</h2>
+    <h2>Projects</h2>
 
-<!-- PROJECT 1 -->
-<div class="project">
-    <input type="checkbox" id="p1">
+    <!-- Project 1 -->
+    <div class="project">
+        <div class="project-title">Project 1: การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</div>
 
-    <div class="btn-row">
-        <label class="btn star" for="p1">ดูข้อความ</label>
-        <label class="btn" for="img1">ดูรูป</label>
+        <div class="toggle-group">
+            <input type="checkbox" id="p1t">
+            <label class="btn" for="p1t">★ Text</label>
+
+            <input type="checkbox" id="p1i">
+            <label class="btn" for="p1i">🖼 Image</label>
+        </div>
+
+        <div class="content">
+            <p>ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน</p>
+        </div>
+
+        <div class="content">
+            <img src="1778522615670.png">
+        </div>
     </div>
 
-    <input type="checkbox" id="img1">
+    <!-- Project 2 -->
+    <div class="project">
+        <div class="project-title">Project 2: การประสานงานโดยใช้ AI</div>
 
-    <div class="content">
-        <img src="1778522615670.png">
-        <p><b>Project 1:</b> การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ</p>
-        <p>ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน</p>
-    </div>
-</div>
+        <div class="toggle-group">
+            <input type="checkbox" id="p2t">
+            <label class="btn" for="p2t">★ Text</label>
 
-<!-- PROJECT 2 -->
-<div class="project">
-    <input type="checkbox" id="p2">
+            <input type="checkbox" id="p2i">
+            <label class="btn" for="p2i">🖼 Image</label>
+        </div>
 
-    <div class="btn-row">
-        <label class="btn star" for="p2">ดูข้อความ</label>
-    </div>
+        <div class="content">
+            <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น</p>
+        </div>
 
-    <div class="content">
-        <img src="1778522904674.png">
-        <p><b>Project 2:</b> การประสานงานโดยใช้ AI</p>
-        <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น</p>
-    </div>
-</div>
-
-<!-- PROJECT 3 -->
-<div class="project">
-    <input type="checkbox" id="p3">
-
-    <div class="btn-row">
-        <label class="btn star" for="p3">ดูข้อความ</label>
+        <div class="content">
+            <img src="1778522904674.png">
+        </div>
     </div>
 
-    <div class="content">
-        <img src="1778522995240.png">
-        <p><b>Project 3:</b> ระบบติดตามและวิเคราะห์เส้นทางการขนส่งแบบเรียลไทม์</p>
-        <p>พัฒนาแนวคิดระบบติดตามรถขนส่งที่สามารถวิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุดเพื่อลดต้นทุนและเวลา</p>
-    </div>
-</div>
+    <!-- Project 3 -->
+    <div class="project">
+        <div class="project-title">Project 3: ระบบติดตามและวิเคราะห์เส้นทาง</div>
 
+        <div class="toggle-group">
+            <input type="checkbox" id="p3t">
+            <label class="btn" for="p3t">★ Text</label>
+
+            <input type="checkbox" id="p3i">
+            <label class="btn" for="p3i">🖼 Image</label>
+        </div>
+
+        <div class="content">
+            <p>พัฒนาแนวคิดระบบติดตามรถขนส่งที่สามารถวิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมที่สุดเพื่อลดต้นทุนและเวลา</p>
+        </div>
+
+        <div class="content">
+            <img src="1778522995240.png">
+        </div>
+    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-<h2>Skills</h2>
+    <h2>Skills</h2>
 
-<div class="skill">
-<p>การวางแผนโลจิสติกส์ 999++ (95%)</p>
-<div class="bar"><div class="fill" style="width:95%"></div></div>
-</div>
+    <div class="skill">
+        <p>การวางแผนและจัดการงานโลจิสติกส์ 999++ (95%)</p>
+        <div class="bar"><div class="fill" style="width:95%"></div></div>
+    </div>
 
-<div class="skill">
-<p>การทำงานเป็นทีม 999++ (97%)</p>
-<div class="bar"><div class="fill" style="width:97%"></div></div>
-</div>
+    <div class="skill">
+        <p>การประสานงานและการทำงานเป็นทีม 999++ (98%)</p>
+        <div class="bar"><div class="fill" style="width:98%"></div></div>
+    </div>
 
-<div class="skill">
-<p>AI Data Analysis 999++ (93%)</p>
-<div class="bar"><div class="fill" style="width:93%"></div></div>
-</div>
+    <div class="skill">
+        <p>การใช้ AI วิเคราะห์ข้อมูล 999++ (92%)</p>
+        <div class="bar"><div class="fill" style="width:92%"></div></div>
+    </div>
 
-<div class="skill">
-<p>การแก้ปัญหาเฉพาะหน้า 999++ (94%)</p>
-<div class="bar"><div class="fill" style="width:94%"></div></div>
-</div>
+    <div class="skill">
+        <p>การแก้ปัญหาเฉพาะหน้า 999++ (94%)</p>
+        <div class="bar"><div class="fill" style="width:94%"></div></div>
+    </div>
 
-<div class="skill">
-<p>Supply Chain System 999++ (92%)</p>
-<div class="bar"><div class="fill" style="width:92%"></div></div>
-</div>
+    <div class="skill">
+        <p>ความเข้าใจซัพพลายเชน 999++ (90%)</p>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+    </div>
 
-<div class="skill">
-<p>เกมเมอร์ระดับสูง 99999++ (99%)</p>
-<div class="bar"><div class="fill" style="width:99%"></div></div>
-</div>
-
+    <div class="skill">
+        <p>เล่นเกม Level 99999++ (99%)</p>
+        <div class="bar"><div class="fill" style="width:99%"></div></div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-<h2>Contact</h2>
-<a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
-<a href="#">LinkedIn: Warakorn Somphong</a>
-<a href="#">Instagram: @warakorn</a>
+    <h2>Contact</h2>
+    <a href="mailto:warakorn@example.com">Email: warakorn@example.com</a>
+    <a href="#">LinkedIn: Warakorn Somphong</a>
+    <a href="#">Instagram: @warakorn</a>
 </section>
 
 </body>
