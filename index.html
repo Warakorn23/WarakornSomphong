@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +17,49 @@
 
     body{
         background:#f4f6fb;
-        color:#333;
+        color:#1f2937;
     }
 
     /* HERO */
     .hero{
-        background:#1e3a8a;
-        color:white;
+        position:relative;
         text-align:center;
-        padding:80px 20px;
+        padding:90px 20px;
+        background:linear-gradient(135deg,#1e3a8a,#3b82f6);
+        color:white;
+        overflow:hidden;
+    }
+
+    .hero::before{
+        content:"";
+        position:absolute;
+        width:300px;
+        height:300px;
+        background:rgba(255,255,255,0.08);
+        border-radius:50%;
+        top:-80px;
+        left:-80px;
+    }
+
+    .hero::after{
+        content:"";
+        position:absolute;
+        width:250px;
+        height:250px;
+        background:rgba(255,255,255,0.06);
+        border-radius:50%;
+        bottom:-80px;
+        right:-80px;
     }
 
     .hero img{
-        width:150px;
-        height:150px;
+        width:140px;
+        height:140px;
         border-radius:50%;
         object-fit:cover;
-        border:5px solid white;
+        border:4px solid white;
         margin-bottom:15px;
+        background:white;
     }
 
     .hero h1{
@@ -46,8 +71,9 @@
         margin-top:5px;
     }
 
+    /* SECTION */
     section{
-        max-width:900px;
+        max-width:950px;
         margin:auto;
         padding:60px 20px;
     }
@@ -60,60 +86,87 @@
     /* ABOUT */
     .about p{
         margin-bottom:12px;
-        color:#555;
+        color:#374151;
+        line-height:1.7;
     }
 
-    /* PROJECTS */
+    /* PROJECT */
     .project{
         background:white;
-        border:1px solid #ddd;
         border-radius:12px;
+        padding:15px;
         margin-bottom:15px;
-        overflow:hidden;
+        border:1px solid #e5e7eb;
     }
 
-    .project input{
-        display:none;
+    .project-title{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-weight:600;
+        margin-bottom:10px;
     }
 
     .toggle{
         display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:12px 15px;
+        gap:8px;
+    }
+
+    .btn{
         background:#e5e7eb;
+        border:none;
+        padding:6px 10px;
+        border-radius:6px;
         cursor:pointer;
-        font-weight:500;
+        font-size:12px;
     }
 
-    .star{
-        font-size:20px;
-        color:#1e3a8a;
+    .btn:hover{
+        background:#d1d5db;
     }
 
-    .content{
-        max-height:0;
-        overflow:hidden;
-        transition:0.4s ease;
-        padding:0 15px;
+    input{
+        display:none;
     }
 
-    .project input:checked ~ .content{
-        max-height:600px;
-        padding:15px;
+    /* IMAGE */
+    .img-box{
+        display:none;
+        text-align:center;
+        margin-top:10px;
     }
 
-    .content img{
+    .img-box img{
         width:180px;
-        height:auto;
+        height:120px;
+        object-fit:cover;
         border-radius:10px;
+    }
+
+    /* TEXT */
+    .text-box{
+        display:none;
+        margin-top:10px;
+        color:#4b5563;
+        line-height:1.6;
+    }
+
+    /* toggles */
+    #p1-img:checked ~ .img-box,
+    #p2-img:checked ~ .img-box,
+    #p3-img:checked ~ .img-box{
         display:block;
-        margin-bottom:10px;
+    }
+
+    #p1-text:checked ~ .text-box,
+    #p2-text:checked ~ .text-box,
+    #p3-text:checked ~ .text-box{
+        display:block;
     }
 
     /* SKILLS */
     .skill{
-        margin-bottom:12px;
+        margin-bottom:14px;
     }
 
     .bar{
@@ -143,57 +196,86 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="1778521322518.png" alt="Profile">
+    <img src="1778521322518.png">
     <h1>Warakorn Somphong</h1>
     <p>Marketing student passionate about brand storytelling</p>
-    <p>Logistics Management | 6650100951</p>
+    <p>Logistics Management Student | ID: 6650100951</p>
 </div>
 
 <!-- ABOUT -->
 <section class="about">
-<h2>About Me</h2>
-<p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง</p>
-<p>มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเพื่อเพิ่มประสิทธิภาพการทำงาน</p>
-<p>มุ่งเน้นการพัฒนาระบบโลจิสติกส์ให้มีความรวดเร็ว แม่นยำ และลดต้นทุนในการดำเนินงาน</p>
+    <h2>About Me</h2>
+    <p>ผมชื่อ วรกร สมพงษ์ เป็นนักศึกษาคณะการจัดการโลจิสติกส์และการคมนาคมขนส่ง มีความสนใจในด้านการวางแผนการจัดส่งสินค้า การประสานงานระหว่างทีม และการใช้เทคโนโลยีเข้ามาช่วยเพิ่มประสิทธิภาพในการทำงาน</p>
+    <p>เพื่อให้ระบบโลจิสติกส์มีความรวดเร็วและแม่นยำมากขึ้น พร้อมพัฒนาทักษะด้านการวิเคราะห์และการจัดการข้อมูล</p>
 </section>
 
 <!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 
+<!-- PROJECT 1 -->
 <div class="project">
-    <input type="checkbox" id="p1">
-    <label class="toggle" for="p1">
-        Project 1: การวางแผนงานควบคู่ไปกับระบบอัตโนมัติ
-        <span class="star">★</span>
-    </label>
-    <div class="content">
+    <div class="project-title">
+        Project 1: การวางแผนงานควบคู่ระบบอัตโนมัติ
+        <div class="toggle">
+            <label class="btn" for="p1-img">ดูรูป</label>
+            <label class="btn" for="p1-text">★ ข้อความ</label>
+        </div>
+    </div>
+
+    <input type="checkbox" id="p1-img">
+    <input type="checkbox" id="p1-text">
+
+    <div class="img-box">
         <img src="1778522615670.png">
-        <p>ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน</p>
+    </div>
+
+    <div class="text-box">
+        ศึกษาและออกแบบแนวทางการจัดการงานโดยใช้ระบบอัตโนมัติเข้ามาช่วยลดขั้นตอนที่ซ้ำซ้อน เพิ่มความเร็วและความแม่นยำในการทำงาน
     </div>
 </div>
 
+<!-- PROJECT 2 -->
 <div class="project">
-    <input type="checkbox" id="p2">
-    <label class="toggle" for="p2">
+    <div class="project-title">
         Project 2: การประสานงานโดยใช้ AI
-        <span class="star">★</span>
-    </label>
-    <div class="content">
+        <div class="toggle">
+            <label class="btn" for="p2-img">ดูรูป</label>
+            <label class="btn" for="p2-text">★ ข้อความ</label>
+        </div>
+    </div>
+
+    <input type="checkbox" id="p2-img">
+    <input type="checkbox" id="p2-text">
+
+    <div class="img-box">
         <img src="1778522904674.png">
-        <p>นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น</p>
+    </div>
+
+    <div class="text-box">
+        นำ AI มาช่วยในการวิเคราะห์ข้อมูลและสนับสนุนการประสานงานระหว่างทีม เพื่อให้การสื่อสารและการตัดสินใจมีประสิทธิภาพมากขึ้น
     </div>
 </div>
 
+<!-- PROJECT 3 -->
 <div class="project">
-    <input type="checkbox" id="p3">
-    <label class="toggle" for="p3">
-        Project 3: ระบบติดตามและวิเคราะห์เส้นทางการขนส่งแบบเรียลไทม์
-        <span class="star">★</span>
-    </label>
-    <div class="content">
+    <div class="project-title">
+        Project 3: ระบบติดตามเส้นทางขนส่งเรียลไทม์
+        <div class="toggle">
+            <label class="btn" for="p3-img">ดูรูป</label>
+            <label class="btn" for="p3-text">★ ข้อความ</label>
+        </div>
+    </div>
+
+    <input type="checkbox" id="p3-img">
+    <input type="checkbox" id="p3-text">
+
+    <div class="img-box">
         <img src="1778522995240.png">
-        <p>พัฒนาแนวคิดระบบติดตามรถขนส่ง วิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมเพื่อลดต้นทุนและเวลา</p>
+    </div>
+
+    <div class="text-box">
+        พัฒนาแนวคิดระบบติดตามรถขนส่ง วิเคราะห์เส้นทาง ความล่าช้า และแนะนำเส้นทางที่เหมาะสมเพื่อลดต้นทุนและเวลา
     </div>
 </div>
 
@@ -204,33 +286,33 @@
 <h2>Skills</h2>
 
 <div class="skill">
-<p>การวางแผนโลจิสติกส์</p>
-<div class="bar"><div class="fill" style="width:90%"></div></div>
+    <p>การวางแผนโลจิสติกส์</p>
+    <div class="bar"><div class="fill" style="width:90%"></div></div>
 </div>
 
 <div class="skill">
-<p>การทำงานเป็นทีม</p>
-<div class="bar"><div class="fill" style="width:88%"></div></div>
+    <p>การทำงานเป็นทีม</p>
+    <div class="bar"><div class="fill" style="width:88%"></div></div>
 </div>
 
 <div class="skill">
-<p>AI & Data Analysis</p>
-<div class="bar"><div class="fill" style="width:85%"></div></div>
+    <p>การใช้ AI วิเคราะห์ข้อมูล</p>
+    <div class="bar"><div class="fill" style="width:85%"></div></div>
 </div>
 
 <div class="skill">
-<p>การแก้ปัญหาเฉพาะหน้า</p>
-<div class="bar"><div class="fill" style="width:92%"></div></div>
+    <p>การแก้ปัญหาเฉพาะหน้า</p>
+    <div class="bar"><div class="fill" style="width:87%"></div></div>
 </div>
 
 <div class="skill">
-<p>Supply Chain Understanding</p>
-<div class="bar"><div class="fill" style="width:87%"></div></div>
+    <p>ระบบขนส่ง & ซัพพลายเชน</p>
+    <div class="bar"><div class="fill" style="width:86%"></div></div>
 </div>
 
 <div class="skill">
-<p>Game Level 999++ (Speed & Decision)</p>
-<div class="bar"><div class="fill" style="width:99%"></div></div>
+    <p>เกมเมอร์ Level 999++ (คิดเร็ว 99%)</p>
+    <div class="bar"><div class="fill" style="width:99%"></div></div>
 </div>
 
 </section>
